@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Coffees Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = setupRefresh;
+
+    function setupRefresh() {
+        setTimeout("refreshPage();", 5000);
+    };
+
+    function refreshPage() {
+        window.location = location.href;
+    }
+</script>
+<div class="coffeelist" th:unless="${#lists.isEmpty(coffeesBySupplier)}">
+
+    <h2>All coffees provided by coffee-supplier</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Beans</th>
+            <th>Aroma</th>
+            <th>Roast</th>
+            <th>Price</th>
+            <th>Caffeine Content</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${coffeesBySupplier}">
+            <td th:text="${c.title}"></td>
+            <td th:text="${c.beans}"></td>
+            <td th:text="${c.aroma}"></td>
+            <td th:text="${c.roast}"></td>
+            <td th:text="${c.price}"></td>
+            <td th:text="${c.caffeineContent}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
