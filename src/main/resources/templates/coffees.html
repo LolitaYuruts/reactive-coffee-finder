@@ -34,12 +34,12 @@
         </thead>
         <tbody>
         <tr th:each="c : ${coffeesBySupplier}">
-            <td th:text="${c.title}"></td>
-            <td th:text="${c.beans}"></td>
-            <td th:text="${c.aroma}"></td>
-            <td th:text="${c.roast}"></td>
-            <td th:text="${c.price}"></td>
-            <td th:text="${c.caffeineContent}"></td>
+            <td th:text="${c.title}" th:unless="${c.title == null}">-</td>
+            <td th:text="${c.beans}" th:unless="${c.beans == null}">-</td>
+            <td th:text="${c.aroma}" th:unless="${c.aroma == null}">-</td>
+            <td th:text="${c.roast}" th:unless="${c.roast == null}">-</td>
+            <td th:text="${c.price}" th:unless="${c.price == null}">-</td>
+            <td th:text="${c.caffeineContent}" th:unless="${c.caffeineContent == null}">-</td>
         </tr>
         </tbody>
     </table>
